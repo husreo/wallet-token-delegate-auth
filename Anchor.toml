@@ -1,0 +1,15 @@
+[features]
+seeds = false
+[programs.mainnet]
+custos = "CUSto3eB2v7ZbzLTtobb1uwhQQur9gWnWtb3vESvrnwz"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+# cluster = "mainnet"
+cluster = "devnet"
+wallet = "./key.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

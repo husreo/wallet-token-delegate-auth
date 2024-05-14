@@ -1,7 +1,9 @@
 [features]
 seeds = false
-[programs.mainnet]
-custos = "CUSto3eB2v7ZbzLTtobb1uwhQQur9gWnWtb3vESvrnwz"
+[programs.devnet]
+custos = "KbFF6rsA1TTiA59ngcGKeT4grZnEagaMTRGhsHVqDSZ"
+# [programs.mainnet]
+# custos = "KbFF6rsA1TTiA59ngcGKeT4grZnEagaMTRGhsHVqDSZ"
 
 [registry]
 url = "https://anchor.projectserum.com"

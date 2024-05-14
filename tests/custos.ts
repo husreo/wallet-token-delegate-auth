@@ -3,6 +3,7 @@ import { Program } from "@project-serum/anchor";
 import { Custos } from "../target/types/custos";
 import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { min } from "bn.js";
+import { publicKey } from "@project-serum/anchor/dist/cjs/utils";
 
 const delegateAccountPrefix = "custos";
 const delegateTokenAccountPrefix = "custos_token";
@@ -16,7 +17,7 @@ describe("custos", () => {
   const wallet = provider.wallet as anchor.Wallet;
 
   const hotWallet = new anchor.web3.PublicKey(
-    "ELxUQkWLMBCoMatry9qzQR6RHiUYmVndUpmPwhZ8PKJK"
+    "A9pi8RdMraY4dwYtREty48ksw69FwELjScsnodd56dD4"
   );
 
   it("Create Delegate", async () => {
@@ -25,7 +26,9 @@ describe("custos", () => {
         [Buffer.from(delegateAccountPrefix), wallet.publicKey.toBuffer()],
         program.programId
       );
-
+    console.log("delegateAccount:", delegateAccount.toBase58());
+    console.log("coldwallet:", wallet.publicKey.toBuffer());
+    
     // Add your test here.
     const tx = await program.methods
       .createDelegate()
@@ -60,7 +63,7 @@ describe("custos", () => {
 
   it("Should Create Token delegate", async () => {
     const mint = new anchor.web3.PublicKey(
-      "DJHvnJQH6Vtq99173tLgAcF5Mzbphx2LBgQk88VRLjUT"
+      "5CY4inXAWEKDENqJ5ZLNaTYX8gzjHZNXimuj7VmFmVi6"
     );
     let wallet_ata = await getAssociatedTokenAddress(
       mint, // mint
@@ -94,7 +97,7 @@ describe("custos", () => {
 
   it("Should revoke token account", async () => {
     const mint = new anchor.web3.PublicKey(
-      "DJHvnJQH6Vtq99173tLgAcF5Mzbphx2LBgQk88VRLjUT"
+      "5CY4inXAWEKDENqJ5ZLNaTYX8gzjHZNXimuj7VmFmVi6"
     );
     let wallet_ata = await getAssociatedTokenAddress(
       mint, // mint

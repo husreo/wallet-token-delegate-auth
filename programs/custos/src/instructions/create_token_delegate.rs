@@ -21,7 +21,9 @@ pub struct CreateTokenDelegate<'info> {
     pub delegate_token_account: Account<'info, DelegateTokenAccount>,
 
     pub mint: Account<'info, Mint>,
-    #[account(constraint = token_account.mint == mint.key() && token_account.owner == authority.key() )]
+    #[account(
+        constraint = token_account.mint == mint.key() && token_account.owner == authority.key() 
+    )]
     pub token_account: Account<'info, TokenAccount>,
 
     pub system_program: Program<'info, System>,
